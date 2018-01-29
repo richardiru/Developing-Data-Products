@@ -1,0 +1,25 @@
+---
+title: 'Assignment: R Markdown and Leaflet'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r results="asis"}
+     cat("<script src=''></script>")
+```
+
+## Overview
+
+This page displays the date it was created and shows a map centered University of Kentucky, Ky. 
+
+The document was created on **`r format(Sys.Date(), "%b %d, %Y")`**
+
+```{r leaflet, message = FALSE}
+require("leaflet")
+df <- data.frame(lat = runif(20, max = 28.5,min = 28.0),
+                 lng = runif(20, max = 77.5,min = 77.0))
+my_map <- df  %>% leaflet %>% addTiles()  %>% addMarkers(lat = 38.031850, lng = -84.508858 , popup = "University of Kentucky")
+my_map
