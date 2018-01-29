@@ -23,3 +23,4 @@ df <- data.frame(lat = runif(20, max = 28.5,min = 28.0),
                  lng = runif(20, max = 77.5,min = 77.0))
 my_map <- df  %>% leaflet %>% addTiles()  %>% addMarkers(lat = 38.031850, lng = -84.508858 , popup = "University of Kentucky")
 my_map
+.....
