@@ -1,0 +1,23 @@
+---
+title: "R Markdown Presentation & Plotly Exercise"
+author: "Richard Iru"
+date: "02/03/2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Unemployment Rate in the US
+
+* The plot below shows unemployment rate over the past few decades in the US. It is generated with plotly. 
+* You can hover over any point to see the unemployment rate for that month. 
+* Generated on **`r format(Sys.Date(), "%b %d, %Y")`**
+
+```{r message=FALSE, fig.align='center'}
+library(plotly)
+p <- plot_ly(economics, x = ~date, y = ~unemploy / pop, width = 500, height = 300) %>%
+  layout(yaxis = list(tickformat=".1%", title = "Unemployment Rate in the US"), xaxis = list(title = "Year / Month"))
+p
+```
